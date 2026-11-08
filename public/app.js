@@ -9,12 +9,11 @@
 
   function updatePeople() {
     const cards = [...list.querySelectorAll('.participant')];
-    document.querySelector('#people-count').textContent = `${cards.length} ${cards.length === 1 ? 'PERSON' : 'PEOPLE'}`;
-    document.querySelector('#summary-count').textContent = `${cards.length} ${cards.length === 1 ? 'person' : 'people'}`;
+    document.querySelector('#people-count').textContent = `${cards.length} ${cards.length === 1 ? 'person' : 'people'}`;
     addButton.disabled = cards.length >= maximumPeople;
     cards.forEach((card, index) => {
       card.querySelector('legend').textContent = `Person ${index + 1}`;
-      card.querySelector('.participant-label').textContent = `PERSON ${String(index + 1).padStart(2, '0')}`;
+      card.querySelector('.participant-label').textContent = `Person ${index + 1}`;
       const remove = card.querySelector('.remove-person');
       remove.disabled = cards.length <= 2;
       remove.setAttribute('aria-label', `Remove person ${index + 1}`);
@@ -58,7 +57,7 @@
     }
 
     submitButton.disabled = true;
-    submitButton.textContent = 'Sending your secrets…';
+    submitButton.textContent = 'Sending matches…';
     message.hidden = true;
     let completed = false;
     try {
@@ -82,7 +81,7 @@
       completed = true;
       document.querySelector('#access-code').value = '';
       showMessage('Your secrets are on their way! The email service accepted the messages. Check its dashboard for delivery status.');
-      submitButton.textContent = 'Secrets sent ✓';
+      submitButton.textContent = 'Matches sent';
     } catch (error) {
       showMessage(error instanceof TypeError
         ? 'We could not confirm whether your emails were sent. Check your email provider dashboard before trying again.'
@@ -90,7 +89,7 @@
     } finally {
       if (!completed) {
         submitButton.disabled = false;
-        submitButton.innerHTML = 'Send the secrets <span aria-hidden="true">↗</span>';
+        submitButton.textContent = 'Send matches';
       }
     }
   });

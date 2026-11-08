@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#122a24">
-    <meta name="description" content="A little less planning, a lot more magic. Organize a Secret Santa exchange in minutes.">
-    <title>Little Secret — Secret Santa, made simple</title>
+    <meta name="theme-color" content="#193a32">
+    <meta name="description" content="Organize a Secret Santa exchange and send everyone their match.">
+    <title>Secret Santa</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
@@ -13,80 +13,85 @@
     <script src="app.js" defer></script>
   </head>
   <body>
-    <header class="site-header">
-      <a class="brand" href="#top" aria-label="Little Secret home"><span class="brand-mark" aria-hidden="true">✳</span> little secret<span class="brand-period">.</span></a>
-      <span class="header-note"><span class="status-dot"></span> MADE FOR THE MAGIC OF GIVING</span>
-    </header>
-
-    <main id="top">
-      <section class="hero">
-        <div class="hero-copy">
-          <div class="eyebrow"><span>✦</span> THE LITTLE SECRET SANTA ORGANIZER</div>
-          <h1>Good gifts start<br>with <em>a little secret.</em></h1>
-          <p>Bring your favorite people together. We’ll take care of the names, the matching, and the secret-keeping.</p>
-          <a class="hero-link" href="#exchange">LET’S MAKE SOME MAGIC <span aria-hidden="true">↘</span></a>
+    <main class="page">
+      <header class="intro">
+        <div class="brand"><span class="brand-icon" aria-hidden="true">✳</span> little secret<span class="brand-dot">.</span></div>
+        <div class="intro-content">
+          <p class="eyebrow"><span aria-hidden="true">✦</span> A LITTLE MAGIC, MADE SIMPLE</p>
+          <h1>A season of<br><em>little surprises.</em></h1>
+          <p class="intro-description">The best gifts start with a little mystery. Gather your people and we’ll take it from there.</p>
+          <div class="intro-divider"></div>
+          <p class="intro-caption">A SECRET SANTA FOR YOUR FAVORITE PEOPLE</p>
         </div>
-        <div class="hero-art" aria-hidden="true">
-          <span class="art-star star-one">✳</span><span class="art-star star-two">✦</span><span class="art-star star-three">✧</span>
-          <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
-          <div class="gift"><div class="gift-lid"></div><div class="gift-box"></div><div class="gift-ribbon"></div><div class="gift-bow bow-left"></div><div class="gift-bow bow-right"></div><div class="gift-tag">FOR YOU<br><span>with love</span></div></div>
-          <span class="art-caption">A LITTLE JOY, DELIVERED.</span>
+        <div class="illustration" aria-hidden="true">
+          <div class="illustration-orbit"></div>
+          <div class="envelope"><span class="envelope-flap"></span><span class="wax-seal">✳</span></div>
+          <span class="illustration-sparkle sparkle-one">✦</span>
+          <span class="illustration-sparkle sparkle-two">✧</span>
         </div>
-        <div class="hero-footer"><span>THOUGHTFUL GIVING, MADE EASY</span><span>01 / THE FUN STARTS HERE</span></div>
-      </section>
+        <div class="intro-bottom"><span>MADE FOR GIVING</span><span>✦</span><span>KEPT A SECRET</span></div>
+      </header>
 
-      <section class="workspace" id="exchange">
-        <div class="section-intro">
-          <div><div class="eyebrow dark-eyebrow"><span>✦</span> YOUR EXCHANGE, YOUR WAY</div><h2>Let’s get this <em>party started.</em></h2></div>
-          <p>A few details now, a whole lot of joy later. We’ll keep everyone’s match a surprise, even from you.</p>
-        </div>
-
-        <form id="exchange-form">
-          <div class="form-layout">
-            <div class="form-main">
-              <section class="form-section" aria-labelledby="details-title">
-                <div class="section-heading"><span class="step-number">01</span><div><h3 id="details-title">Set the scene</h3><p>The little details that make it official.</p></div><span class="heading-sparkle" aria-hidden="true">✳</span></div>
-                <div class="field-grid">
-                  <label>Gift deadline <span class="required">*</span><input id="deadline" name="deadline" type="date" required><span class="field-hint">When should gifts be exchanged?</span></label>
-                  <label>Gift budget <span class="required">*</span><input id="budget" name="budget" type="text" maxlength="60" placeholder="e.g. $30, or homemade" required><span class="field-hint">A guideline everyone can enjoy.</span></label>
-                </div>
-              </section>
-
-              <section class="form-section people-section" aria-labelledby="people-title">
-                <div class="section-heading"><span class="step-number">02</span><div><h3 id="people-title">Gather your people</h3><p>At least two people make a little magic.</p></div><span class="people-count" id="people-count">2 PEOPLE</span></div>
-                <div id="participants"></div>
-                <button class="add-person" type="button" id="add-person"><span aria-hidden="true">+</span> Add another person</button>
-                <p class="privacy-note"><span aria-hidden="true">✧</span> Interests are shared only with that person’s Secret Santa.</p>
-              </section>
-
-              <section class="form-section access-section" aria-labelledby="access-title">
-                <div class="section-heading"><span class="step-number">03</span><div><h3 id="access-title">Keep it just between us</h3><p>Enter the organizer code configured for this site.</p></div></div>
-                <label>Organizer access code <span class="required">*</span><input id="access-code" name="accessCode" type="password" autocomplete="off" maxlength="256" placeholder="Your secret code" required><span class="field-hint">Ask the site owner for the code if you don’t have it.</span></label>
-              </section>
-            </div>
-
-            <aside class="summary" aria-labelledby="summary-title">
-              <div class="summary-top"><span>THE LITTLE RUNDOWN</span><span aria-hidden="true">✳</span></div>
-              <h3 id="summary-title">The joy is in<br><em>the details.</em></h3>
-              <p>Here’s what happens when you send your invitations:</p>
-              <ol><li><span>01</span><div><strong>We draw names</strong><small>Everyone gets one person. No one gets themselves.</small></div></li><li><span>02</span><div><strong>We send the secrets</strong><small>Each person gets their match and a little gift inspiration by email.</small></div></li><li><span>03</span><div><strong>You spread the joy</strong><small>All that’s left is to find the perfect gift.</small></div></li></ol>
-              <div class="summary-divider"></div>
-              <div class="summary-count"><span>YOUR GIFTING CREW</span><strong id="summary-count">2 people</strong></div>
-              <button class="submit-button" type="submit" id="submit-button">Send the secrets <span aria-hidden="true">↗</span></button>
-              <p class="summary-footnote">The draw happens when you send. Matches can’t be previewed or recovered here.</p>
-              <div id="form-message" role="status" aria-live="polite" tabindex="-1" hidden></div>
-            </aside>
+      <div class="workspace">
+      <div class="workspace-heading">
+        <span class="workspace-kicker">YOUR EXCHANGE</span>
+        <h2>Let’s make it <em>memorable.</em></h2>
+        <p>Add your group and we’ll email everyone their match.</p>
+      </div>
+      <form id="exchange-form">
+        <section aria-labelledby="details-title">
+          <div class="section-title"><span class="section-number">01</span><h3 id="details-title">Exchange details</h3></div>
+          <div class="field-grid">
+            <label>Gift deadline
+              <input id="deadline" name="deadline" type="date" required>
+            </label>
+            <label>Gift budget
+              <input id="budget" name="budget" type="text" maxlength="60" placeholder="e.g. $30" required>
+            </label>
           </div>
-        </form>
-      </section>
+        </section>
+
+        <section aria-labelledby="people-title">
+          <div class="section-heading">
+            <div>
+              <div class="section-title"><span class="section-number">02</span><h3 id="people-title">Participants</h3></div>
+              <p>Add at least two people. Interests are shared only with their gift giver.</p>
+            </div>
+            <span id="people-count">2 people</span>
+          </div>
+          <div id="participants"></div>
+          <button class="add-person" type="button" id="add-person">+ Add person</button>
+        </section>
+
+        <section aria-labelledby="send-title">
+          <div class="section-title"><span class="section-number">03</span><h3 id="send-title">Send matches</h3></div>
+          <label>Organizer access code
+            <input id="access-code" name="accessCode" type="password" autocomplete="off" maxlength="256" required>
+            <span class="field-hint">The password set by the site owner.</span>
+          </label>
+          <button class="submit-button" type="submit" id="submit-button">Send matches</button>
+          <p class="send-note">Matches are drawn and emailed when you send. They can’t be previewed or recovered here.</p>
+          <div id="form-message" role="status" aria-live="polite" tabindex="-1" hidden></div>
+        </section>
+      </form>
+      <footer>MADE FOR A LITTLE MORE JOY <span aria-hidden="true">✳</span></footer>
+      </div>
     </main>
-    <footer><a class="brand footer-brand" href="#top"><span class="brand-mark" aria-hidden="true">✳</span> little secret<span class="brand-period">.</span></a><p>Made for thoughtful moments &amp; happy surprises.</p><span>GIVE A LITTLE JOY ✦</span></footer>
+
     <template id="participant-template">
       <fieldset class="participant">
         <legend class="sr-only"></legend>
-        <div class="participant-title"><span class="participant-label"></span><button type="button" class="remove-person">Remove <span aria-hidden="true">×</span></button></div>
-        <div class="field-grid"><label>Name <span class="required">*</span><input class="person-name" type="text" maxlength="80" placeholder="e.g. Alex Green" required></label><label>Email <span class="required">*</span><input class="person-email" type="email" maxlength="254" placeholder="alex@example.com" required></label></div>
-        <label class="interests-label">A few interests <span class="optional">OPTIONAL</span><input class="person-interests" type="text" maxlength="500" placeholder="e.g. coffee, cozy books, hiking"><span class="field-hint">A little inspiration for their gift giver.</span></label>
+        <div class="participant-title">
+          <span class="participant-label"></span>
+          <button type="button" class="remove-person">Remove</button>
+        </div>
+        <div class="field-grid">
+          <label>Name <input class="person-name" type="text" maxlength="80" required></label>
+          <label>Email <input class="person-email" type="email" maxlength="254" required></label>
+        </div>
+        <label class="interests-label">Interests <span class="optional">(optional)</span>
+          <input class="person-interests" type="text" maxlength="500" placeholder="e.g. books, coffee, hiking">
+        </label>
       </fieldset>
     </template>
   </body>
